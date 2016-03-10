@@ -57,6 +57,9 @@ docs/_build/
 
 # PyBuilder
 target/
-
+db.sqlite3
+media/
+.idea/
+*.pyc
 #Ipython Notebook
 .ipynb_checkpoints

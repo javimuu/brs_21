@@ -1,16 +1,13 @@
 from django.db import models
-from django.contrib.auth.models import User
 from apps.books.models import Book
-# Create your models here.
+from django.contrib.auth.models import User
 
 
-class Review(models.Model):
-    review = models.TextField()
-    rating = models.IntegerField()
+class Favorites(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table = 'reviews'
+        db_table = 'favorites'

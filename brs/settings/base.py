@@ -22,6 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '!=-e$b@027rj#0($^^y^55v1mo@ehm=o=)^1i4u(hb+oi-e7fl'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -39,7 +40,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'apps.books',
     'apps.activities',
-    'apps.admin',
     'apps.comments',
     'apps.reviews',
 )
@@ -85,6 +85,7 @@ WSGI_APPLICATION = 'brs.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, '../../db.sqlite3'),
 #     }
 # }
+
 
 
 # Internationalization

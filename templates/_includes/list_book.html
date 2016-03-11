@@ -1,0 +1,69 @@
+<div class="had-container">
+    <div class="row">
+      <div class="section col s12 m12 l9">
+      <!--   Icon Section   -->
+      <div class="row">
+        <nav class="white" style="box-shadow: none">
+          <div class="nav-wrapper">
+            <ul id="nav-mobile" class="right">
+              <li><a href="#"><i class="material-icons">view_module</i></a></li>
+              <li><a href="#"><i class="material-icons">view_list</i></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="row">
+
+        {% include "_includes/book_preview.html" %}
+
+      </div>
+
+    </div>
+    <div class="hide-on-med-and-down col m3 l3">
+      <div class="row"> <!-- Search --->
+        <h5>Search</h5>
+        <form method="get" action="search.html">
+          <input type="text" name="search" placeholder="Enter text">
+          <button class="waves-effect waves-light btn" type="submit">Search</button>
+        </form>
+      </div>
+      <div class="row"> <!-- Activities --->
+        <h5>Activities</h5>
+        <ul class="collection overflow activities">
+          {% include "_includes/activity_preview.html" %}
+
+        </ul>
+        <a href="#" class="btn">View more</a>
+      </div>
+      <hr>
+      <div class="row">
+        <h5>Favourites</h5>
+        <ul class="gallery">
+          <li>
+            <img src="images/office.jpg" width="90" height="90">
+          </li>
+          <li>
+            <img src="images/office.jpg" width="90" height="90">
+          </li>
+          <li>
+            <img src="images/office.jpg" width="90" height="90">
+          </li>
+          <li>
+            <img src="images/office.jpg" width="90" height="90">
+          </li>
+          <li>
+            <img src="images/office.jpg" width="90" height="90">
+          </li>
+          <li>
+            <img src="images/office.jpg" width="90" height="90">
+          </li>
+        </ul>
+        <a href="#" class="btn">View more</a>
+      </div>
+      <div class="row">
+        <h5>Categories</h5>
+        <a class="chip tag" href="#">javimuu</a>
+      </div>
+    </div>
+    </div>
+  </div>

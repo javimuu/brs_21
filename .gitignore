@@ -39,6 +39,7 @@ htmlcov/
 .tox/
 
 brs/settings/dev.py
+brs/postgres.py
 
 .coverage
 .coverage.*

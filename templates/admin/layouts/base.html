@@ -12,20 +12,13 @@
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   {% block css %}
   {% endblock %}
+
 </head>
-<body>
-  {% include "layouts/header.html" %}
-  {% include "layouts/banner.html" %}
+<body class="bg-fr">
 
   {% block content %}
 
-  {% endblock %}
 
-
-  {% include "layouts/extensions.html" %}
-  {% include "layouts/footer.html" %}
-
-  {% block js %}
   {% endblock %}
 
   <!--  Scripts-->

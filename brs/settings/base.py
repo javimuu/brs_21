@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'apps.activities',
     'apps.comments',
     'apps.reviews',
+    'apps.categories',
 
 )
 

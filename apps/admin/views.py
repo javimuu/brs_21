@@ -1,15 +1,30 @@
 from django.shortcuts import HttpResponseRedirect
-from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import (
+    reverse_lazy,
+    reverse,
+)
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.forms import AdminAuthenticationForm
 from django.contrib.auth import login, logout
 from django.views.generic import (
-        FormView,
-        TemplateView,
+    FormView,
+    TemplateView,
+    ListView,
+    CreateView,
+    UpdateView,
 )
 
 from .form import AdminAuthForm
+
+from apps.categories.models import (
+    Category,
+    BookCategory,
+)
+
+from apps.categories.form import (
+    CategoryForm,
+)
 
 LOGIN_PAGE = reverse_lazy("admin:login")
 
@@ -23,6 +38,9 @@ class AdminRequiredMixin(object):
     def dispatch(self,request, *args, **kwargs):
         return super(AdminRequiredMixin, self).dispatch(request, *args, **kwargs)
 
+
+### Section: Auth
+
 class IndexView(AdminRequiredMixin, TemplateView):
     template_name = 'admin/index.html'
 
@@ -32,6 +50,10 @@ class IndexView(AdminRequiredMixin, TemplateView):
 
 
 class LoginView(FormView):
+    """
+    Admin log in view
+    """
+
     form_class = AdminAuthForm
     template_name = 'admin/login.html'
 
@@ -49,3 +71,70 @@ class LoginView(FormView):
         admin = form.get_user()
         login(self.request, admin)
         return super().form_valid(form)
+
+### End Section Auth
+
+
+### Section: Categories
+
+class CategoryView(AdminRequiredMixin, ListView):
+    """
+    View list categories
+    """
+
+    model = Category
+    context_object_name = 'categories'
+    template_name = 'admin/categories/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryView, self).get_context_data(**kwargs)
+        info = {
+            'title': 'Book Review System - List',
+        }
+        context['info'] = info
+        return context
+
+
+class CategoryCreateView(AdminRequiredMixin, CreateView):
+    """
+    Create a new category
+    """
+
+    model = Category
+    form_class = CategoryForm
+    template_name = 'admin/categories/new.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryCreateView, self).get_context_data(**kwargs)
+        info = {
+            'title': 'Create a Category | Book Review System ',
+        }
+        context['info'] = info
+        return context
+
+
+    def get_success_url(self):
+        return reverse('admin:category')
+
+
+class CategoryUpdateView(AdminRequiredMixin, UpdateView):
+    """
+    Create a new category
+    """
+
+    model = Category
+    form_class = CategoryForm
+    template_name = 'admin/categories/edit.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryUpdateView, self).get_context_data(**kwargs)
+        info = {
+            'title': 'Update Category | Book Review System',
+        }
+        context['info'] = info
+        return context
+
+    def get_success_url(self):
+        return reverse('admin:category')
+
+### End Section Categories

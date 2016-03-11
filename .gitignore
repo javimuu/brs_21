@@ -37,6 +37,9 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
+
+dev.py
+
 .coverage
 .coverage.*
 .cache
@@ -63,3 +66,8 @@ media/
 *.pyc
 #Ipython Notebook
 .ipynb_checkpoints
+
+
+brs/bin/
+brs/include/
+brs/lib/

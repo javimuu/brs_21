@@ -60,10 +60,10 @@ footer.page-footer {
   width: 180px;
 }
 
-.expand-info .avatar-area{
-  padding-left: 60px;
-  padding-top: 30px;
-  padding-bottom: 10px;
+.avatar-area{
+  padding-left: 60px!important;
+  padding-top: 30px!important;
+  padding-bottom: 10px!important;
 }
 
 .gallery > li {
@@ -84,19 +84,79 @@ footer.page-footer {
   color: #fff;
 }
 
-.
+
+
+.book-item{
+  margin-top: 20px;
+  width: 268px;
+  height: 408px;
+}
+
+.book:before{
+  background-image: url("../images/page-overlay-big.png");
+  background-repeat: no-repeat;
+  content: "";
+  height: 411px;
+  position: absolute;
+  width: 271px;
+}
+
+.book img{
+  border-top-left-radius: 16px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 6px;
+  vertical-align: middle;
+}
+
+.rating .material-icons{
+  cursor: pointer;
+}
+
+.select-wrapper input {
+  color: #009688;
+}
+
+.state {
+  padding-bottom: 4px;
+}
+
+.list-comment .collection-item{
+  border-bottom: 1px solid #F7F7F7;
+}
+
+.list-comment{
+  overflow: visible;
+}
+
+#modal-icon img{
+  -webkit-transition: all 0.2s ease; /* Safari and Chrome */
+  -moz-transition: all 0.2s ease; /* Firefox */
+  -ms-transition: all 0.2s ease; /* IE 9 */
+  -o-transition: all 0.2s ease; /* Opera */
+  transition: all 0.2s ease;
+}
+
+#modal-icon img:hover{
+  -webkit-transform:scale(1.25); /* Safari and Chrome */
+  -moz-transform:scale(1.25); /* Firefox */
+  -ms-transform:scale(1.25); /* IE 9 */
+  -o-transform:scale(1.25); /* Opera */
+   transform:scale(1.25);
+}
+
 .bg-fr{
-  background-image: url("../images/framgia.jpg");
+  background-image: url("../images/framgia2.jpg");
   background-repeat: no-repeat;
 }
 
 .bg-fr{
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../images/framgia.jpg");
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../images/framgia.jpg");
-  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../images/framgia.jpg");
-  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../images/framgia.jpg");
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.1))), url("../images/framgia.jpg");
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../images/framgia.jpg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../images/framgia2.jpg");
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../images/framgia2.jpg");
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../images/framgia2.jpg");
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../images/framgia2.jpg");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.1))), url("../images/framgia2.jpg");
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../images/framgia2.jpg");
 }
 
 #email-list {

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
-from django.db import migrations, models
+from django.db import models, migrations
 from django.conf import settings
 
 
@@ -28,7 +27,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Like',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
                 ('created_at', models.DateTimeField(auto_now=True)),
                 ('activity', models.ForeignKey(to='activities.Activity')),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),

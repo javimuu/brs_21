@@ -1,14 +1,17 @@
+{% load staticfiles %}
 <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2">Book Review System</h1>
-        <div class="row center">
-          <h5 class="header col s12 light">Knowledge is the key to success</h5>
-        </div>
-        <br><br>
+        <div class="container">
+            <br><br>
 
-      </div>
+            <h1 class="header center teal-text text-lighten-2">Book Review System</h1>
+
+            <div class="row center">
+                <h5 class="header col s12 light">Knowledge is the key to success</h5>
+            </div>
+            <br><br>
+
+        </div>
     </div>
-    <div class="parallax"><img src="framgia.jpg" alt="background"></div>
-  </div>
+    <div class="parallax"><img src="{% static 'images/framgia.jpg' %}" alt="background"></div>
+</div>

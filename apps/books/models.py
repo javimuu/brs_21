@@ -14,7 +14,7 @@ class Book(models.Model):
     publish_date = models.DateTimeField()
     description = models.TextField(blank=True, default='')
     price = models.FloatField(null=False, blank=False, default=0.0)
-    cover = models.ImageField(upload_to=,_path_to_cover, max_length=255, default='', blank=False)
+    cover = models.ImageField(upload_to=_path_to_cover, max_length=255, default='', blank=False)
 
     class Meta:
         db_table = 'books'

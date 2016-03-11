@@ -38,7 +38,7 @@ pip-delete-this-directory.txt
 htmlcov/
 .tox/
 
-dev.py
+brs/settings/dev.py
 
 .coverage
 .coverage.*

@@ -1,0 +1,150 @@
+{% extends 'layouts/base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div class="container row">
+        <div class="col s12 m6 l4">
+            <div class="book-item">
+                <div class="book">
+                    <img src="{{ book.cover }}" height="408" width="268">
+                </div>
+            </div>
+            <div class="state">
+                <label>Drop me!</label>
+                <a class='dropdown-button btn btn-block' href='#' data-activates='dropdown-state'>Reading</a>
+
+                <!-- Dropdown Structure -->
+                <ul id='dropdown-state' class='dropdown-content'>
+                    <li><a href="#!">Want to read</a></li>
+                    <li><a href="#!">Reading</a></li>
+                    <li><a href="#!">Read</a></li>
+                </ul>
+            </div>
+            <a class="btn btn-block orange darken-3">Add to favourites</a>
+        </div>
+        <div class="col s12 m6 l8">
+            <h2>{{ book.title }}.</h2>
+
+            <p><strong>Rated:</strong>
+
+            <div class="rating teal-text">
+                <i class="material-icons">grade</i>
+                <i class="material-icons">grade</i>
+                <i class="material-icons">grade</i>
+                <i class="material-icons">grade</i>
+                <i class="material-icons">grade</i>
+            </div>
+            </p>
+            <p><strong>Author: </strong>{{ book.author }}.</p>
+
+            <p><strong>Publish date: </strong> {{ book.publish_date|date:'Y-m-d' }}</p>
+
+            <p><strong>Page: </strong> {{ book.pages }} pages.</p>
+
+            <p><strong>Description: </strong> {{ book.description }}</p>
+
+            <p><strong>Categoties:</strong>
+                <a class="chip tag" href="#">javimuu</a>
+                <a class="chip tag" href="#">javimuu</a>
+                <a class="chip tag" href="#">javimuu</a>
+                <a class="chip tag" href="#">javimuu</a>
+                <a class="chip tag" href="#">javimuu</a>
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <h5>10 Reviews</h5>
+        <ul class="collection list-comment">
+            <li class="collection-item avatar">
+                <img src="images/no_avatar.png" alt="" class="circle">
+                <a href="#">quynv</a>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                </p>
+                <a href="#!" data-activates='reply-1' class="dropdown-button secondary-content"><i
+                        class="material-icons">more_vert</i></a>
+                <ul id='reply-1' class='dropdown-content'>
+                    <li><a href="#!">Qoute</a></li>
+                    <li><a href="#!">Edit</a></li>
+                    <li><a href="#!">Delete</a></li>
+                </ul>
+            </li>
+            <li class="collection-item avatar">
+                <img src="images/no_avatar.png" alt="" class="circle">
+                <a href="#">javimuu</a>
+
+                <p>qwerty lol :v <br>
+                <blockquote>
+                    <a href="#">@quynv</a>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat.
+                    </p>
+                </blockquote>
+                </p>
+                <a href="#!" data-activates='reply-2' class="dropdown-button secondary-content"><i
+                        class="material-icons">more_vert</i></a>
+                <ul id='reply-2' class='dropdown-content'>
+                    <li><a href="#!">Qoute</a></li>
+                    <li><a href="#!">Edit</a></li>
+                    <li><a href="#!">Delete</a></li>
+                </ul>
+            </li>
+            <li class="collection-item avatar">
+                <img src="images/no_avatar.png" alt="" class="circle">
+                <a href="#">javimuu</a>
+
+                <p>First Line <br>
+                    Second Line
+                </p>
+                <a href="#!" data-activates='reply-3' class="dropdown-button secondary-content"><i
+                        class="material-icons">more_vert</i></a>
+                <ul id='reply-3' class='dropdown-content'>
+                    <li><a href="#!">Qoute</a></li>
+                    <li><a href="#!">Edit</a></li>
+                    <li><a href="#!">Delete</a></li>
+                </ul>
+            </li>
+            <li class="collection-item avatar">
+                <img src="images/no_avatar.png" alt="" class="circle">
+                <a href="#">javimuu</a>
+
+                <p>First Line <br>
+                    <img src="https://vozforums.com/images/smilies/Off/cool.gif"> Second Line
+                </p>
+                <a href="#!" data-activates='reply-4' class="dropdown-button secondary-content"><i
+                        class="material-icons">more_vert</i></a>
+                <ul id='reply-4' class='dropdown-content'>
+                    <li><a href="#!">Qoute</a></li>
+                    <li><a href="#!">Edit</a></li>
+                    <li><a href="#!">Delete</a></li>
+                </ul>
+            </li>
+            <li class="collection-item avatar">
+                <img src="images/no_avatar.png" alt="" class="circle">
+                <a href="#">javimuu</a>
+
+                <form class="row" id="comment-area">
+                    <textarea class="materialize-textarea">
+
+                    </textarea>
+
+                    <div class="right">
+                        <a class="material-icons modal-trigger" href="#modal-icon">insert_emoticon</a>
+                        <button class="btn waves-effect waves-light" type="submit" name="action">
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+{% block js %}
+{% endblock %}

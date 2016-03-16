@@ -1,34 +1,18 @@
-<div class="navbar-fixed">
-    <nav class="white" role="navigation">
-      <div class="nav-wrapper container">
-        <a id="" href="#" class="brand-logo">Book Reviews System</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="#">Categories</a></li>
-          <li><a href="#">Books</a></li>
-          <li><a href="#">Users</a></li>
-          <li><a href="#">Requests</a></li>
-          <li>
-            <a class="dropdown-button" href="#!" data-constrainwidth="false" data-activates="dropdown1">
-              Hello,&nbsp;{{user.username}}
-              <i class="material-icons right">arrow_drop_down</i>
-            </a>
-          </li>
-          <ul id="dropdown1" class="dropdown-content expand-info">
-            <li class="avatar-area">
-              <img class="circle" src="images/no_avatar.png" alt="avatar" width="60" height="60">
-            </li>
-            <li><a href="#!">Requested books</a></li>
-            <li class="divider"></li>
-            <li><a href="#!">Setting</a></li>
-            <li class="divider"></li>
-            <li><a href="/admin/logout/">Logout</a></li>
-          </ul>
-        </ul>
+<header id="header" class="page-topbar">
+    <!-- start header nav-->
+    <div class="navbar-fixed">
+        <nav class="cyan">
+            <div class="nav-wrapper">
 
-        <ul id="nav-mobile" class="side-nav">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-      </div>
-    </nav>
-  </div>
+                <ul class="left">
+                  <li><h1 class="logo-wrapper"><a href="/admin/" class="brand-logo darken-1"><img src="Changelogs%20%7C%20Materialize%20-%20Material%20Design%20Admin%20Template_files/materialize-logo.png" alt=""></a> <span class="logo-text">BRS</span></h1></li>
+                </ul>
+                <div class="header-search-wrapper hide-on-med-and-down">
+                    <i class="mdi-action-search"></i>
+                    <input name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize" type="text">
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- end header nav-->
+</header>

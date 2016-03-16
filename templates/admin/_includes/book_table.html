@@ -1,0 +1,72 @@
+<table id="data-table-simple" class="responsive-table display dataTable striped bordered hoverable" cellspacing="0"
+       role="grid" aria-describedby="data-table-simple_info">
+    <thead>
+    <tr role="row">
+        <th class="sorting_asc" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1"
+            style="width: 28px;" aria-label="Name: activate to sort column descending" aria-sort="ascending">#
+        </th>
+        <th class="sorting_asc" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1"
+            style="width: 248px;" aria-label="Name: activate to sort column descending" aria-sort="ascending">Title
+        </th>
+        <th class="sorting" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" style="width: 152px;"
+            aria-label="Position: activate to sort column ascending">Author
+        </th>
+        <th class="sorting" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" style="width: 288px;"
+            aria-label="Office: activate to sort column ascending">Category
+        </th>
+        <th class="sorting" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" style="width: 105px;"
+            aria-label="Age: activate to sort column ascending">Number of Pages
+        </th>
+        <th class="sorting" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" style="width: 94px;"
+            aria-label="Start date: activate to sort column ascending">Publish Date
+        </th>
+        <th class="sorting" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" style="width: 80px;"
+            aria-label="Salary: activate to sort column ascending">Price
+        </th>
+        <th class="sorting" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" style="width: 100px;"
+            aria-label="Salary: activate to sort column ascending">Action
+        </th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th rowspan="1" colspan="1">#</th>
+        <th rowspan="1" colspan="1">Title</th>
+        <th rowspan="1" colspan="1">Author</th>
+        <th rowspan="1" colspan="1">Category</th>
+        <th rowspan="1" colspan="1">Number of Pages</th>
+        <th rowspan="1" colspan="1">Publish Date</th>
+        <th rowspan="1" colspan="1">Price</th>
+        <th rowspan="1" colspan="1">Action</th>
+    </tr>
+    </tfoot>
+    <tbody>
+    {% for book in books %}
+    <tr class="hoverable" role="row">
+        <td>{{book.id}}</td>
+        <td class="">{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>
+            {% for category in book.categories.all %}
+            <a href="/admin/categories/detail/{{category.id}}">{{category.title}} </a>&nbsp;
+            {% endfor %}
+        </td>
+        <td>{{book.pages}}</td>
+        <td>{{book.publish_date}}</td>
+        <td>{{book.price}}</td>
+        <td>
+            <div class="row">
+                <div class="col s5">
+                    <a href="/admin/books/update/{{book.id}}" class="btn-floating waves-effect waves-light blue-grey"><i
+                            class=" mdi-editor-mode-edit"></i></a>
+                </div>
+                <div class="col s5">
+                    <a href="/admin/books/delete/{{book.id}}" class="btn-floating waves-effect waves-light brown"><i
+                            class="  mdi-content-clear"></i></a>
+                </div>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -128,3 +128,9 @@ IMGUR_URL = 'https://api.imgur.com/3/image.json'
 IMGUR_ID = '471f4f11a1b567d'
 IMGUR_SECRET = '43c4ca314d341799a83ba25e326371e3651a203c'
 
+
+# Mdeida config
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+BOOK_DIR = 'books'

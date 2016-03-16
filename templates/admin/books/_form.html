@@ -1,0 +1,91 @@
+<form method="post" id="submit-form" class="col s12" action="{{action}}">
+{% csrf_token %}
+  <div class="row margin">
+    <div class="input-field col s12">
+        {{form.title}}
+      <label class="center-align" for="{{form.title.id}}" data-error="wrong">Title</label>
+    </div>
+      <div class="input-field col s12 offset-s1 red-text text-darken-5">
+      {% for error in form.title.errors %}
+        <span class="text-center">{{ error }}</span>
+        {% endfor %}
+      </div>
+  </div>
+  <div class="row margin">
+    <div class="input-field col s12">
+        {{form.author}}
+      <label class="center-align" for="{{form.author.id}}" data-error="wrong">Author</label>
+    </div>
+      <div class="input-field col s12 offset-s1 red-text text-darken-5">
+      {% for error in form.author.errors %}
+        <span class="text-center">{{ error }}</span>
+        {% endfor %}
+      </div>
+  </div>
+  <div class="row margin">
+    <div class="input-field col s12">
+      {{form.description}}
+      <label for="{{form.description.id}}">Description</label>
+    </div>
+      <div class="input-field col s12 offset-s1 red-text text-darken-5"
+          {% for error in form.description.errors %}
+            <span class="text-center">{{ error }}</span>
+            {% endfor %}
+      </div>
+  </div>
+  <div class="row margin">
+    <div class="input-field col s12">
+        {{form.publish_date}}
+      <label class="center-align" for="{{form.publish_date.id}}" data-error="wrong">Publish Date</label>
+    </div>
+      <div class="input-field col s12 offset-s1 red-text text-darken-5">
+      {% for error in form.author.errors %}
+        <span class="text-center">{{ error }}</span>
+        {% endfor %}
+      </div>
+  </div>
+  <div class="row margin">
+    <div class="input-field col s12">
+        {{form.pages}}
+      <label class="center-align" for="{{form.pages.id}}" data-error="wrong">Number of pages</label>
+    </div>
+      <div class="input-field col s12 offset-s1 red-text text-darken-5">
+      {% for error in form.pages.errors %}
+        <span class="text-center">{{ error }}</span>
+        {% endfor %}
+      </div>
+  </div>
+  <div class="row margin">
+    <div class="input-field col s12">
+        {{form.price}}
+      <label class="center-align" for="{{form.price.id}}" data-error="wrong">Price</label>
+    </div>
+      <div class="input-field col s12 offset-s1 red-text text-darken-5">
+      {% for error in form.price.errors %}
+        <span class="text-center">{{ error }}</span>
+        {% endfor %}
+      </div>
+  </div>
+  <div class="row margin">
+    <div class="input-field col s12">
+      {{form.categories}}
+      <label>Category</label>
+    </div>
+  </div>
+  <!--<div class="row margin">-->
+    <!--<div class="input-field col s12">-->
+        <!--{{form.cover}}-->
+      <!--<label class="center-align" for="{{form.cover.id}}" data-error="wrong">Cover</label>-->
+    <!--</div>-->
+      <!--<div class="input-field col s12 offset-s1 red-text text-darken-5">-->
+      <!--{% for error in form.cover.errors %}-->
+        <!--<span class="text-center">{{ error }}</span>-->
+        <!--{% endfor %}-->
+      <!--</div>-->
+  <!--</div>-->
+  <div class="row">
+    <div class="input-field col s12">
+      <button type="submit" class="btn cyan waves-effect waves-light right">{{button}}</button>
+    </div>
+  </div>
+</form>

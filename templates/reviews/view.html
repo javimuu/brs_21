@@ -9,29 +9,15 @@
           <cite>{{ review.created_at|timesince }} ago</cite>
           </blockquote>
           <div class="row">
-              <a href="javascript:void(0);" class="num-comment left">{{ review.comments|length }} comments</a>
-              <a href="javascript:void(0);" class="wite-comment right">Write a comment</a>
+              <a href="javascript:void(0);" class="num-comment left">{{ review.comment_set.all|length }} comments</a>
+              <a href="javascript:void(0);" class="write-comment right" data-id="{{ review.id }}">Write a comment</a>
           </div>
-        <ul class="collection list-comment" id="comment-container-{{ review.id }}">
-          {% for comment in review.comments %}
-              <li class="collection-item avatar">
-                <img src="images/no_avatar.png" alt="" class="circle">
-                <a href="#">javimuu</a>
-                <p>
-                    {{ comment.comment }}
-                </p>
-                <a href="javascript:void(0);" data-beloworigin="true"  data-activates='comment-{{ comment.id }}' class="dropdown-button secondary-content"><i class="material-icons">more_vert</i></a>
-                <ul id='comment-{{ comment.id }}' class='dropdown-content'>
-                  <li><a href="#!">Edit</a></li>
-                  <li><a href="#!">Delete</a></li>
-                </ul>
-              </li>
-          {% endfor %}
-
+        <ul class="collection list-comment" id="comment-container-{{ review.id }}" data-id="{{ review.id }}">
+            {% include 'comments/view.html' with comments=review.comment_set.all %}
         </ul>
         <a href="javascript:void(0);" data-beloworigin="true"  data-activates='review-{{ review.id }}' class="dropdown-button secondary-content"><i class="material-icons">more_vert</i></a>
         <ul id='review-{{ review.id }}' class='dropdown-content'>
-          <li><a href="#!">Comment</a></li>
+          <li><a href="javascript:void(0);" class="write-comment" data-id="{{ review.id }}">Comment</a></li>
           <li><a href="javascript:void(0);" class="edit-review" data-id="{{ review.id }}">Edit</a></li>
           <li><a href="javascript:void(0);" class="delete-review" data-id="{{ review.id }}" data-csrf="{{ csrf_token }}">Delete</a></li>
         </ul>

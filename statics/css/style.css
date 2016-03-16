@@ -157,6 +157,7 @@ footer.page-footer {
   -ms-transition: all 0.2s ease; /* IE 9 */
   -o-transition: all 0.2s ease; /* Opera */
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 #modal-icon img:hover{
@@ -165,6 +166,7 @@ footer.page-footer {
   -ms-transform:scale(1.25); /* IE 9 */
   -o-transform:scale(1.25); /* Opera */
    transform:scale(1.25);
+   cursor: pointer;
 }
 
 .bg-fr{

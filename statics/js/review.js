@@ -35,13 +35,12 @@ $(document).on('click', '.delete-review', function(){
        success: function(data){
             if(data.success == 1){
                 container.remove();
-                alert('Review has been removed.');
             } else {
-                alert("An error occurred while trying to delete this review.<br>Please try again.");
+                alert("An error occurred while trying to delete this review.\nPlease try again later.");
             }
        },
        error: function (xhr, ajaxOptions, thrownError) {
-            alert("An error occurred while trying to delete this review.<br>Please try again.");
+            alert("An error occurred while trying to delete this review.\nPlease try again later.");
        }
     });
 });

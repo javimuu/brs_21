@@ -1,0 +1,21 @@
+<img src="images/no_avatar.png" alt="" class="circle">
+<a href="#">javimuu</a>
+{% if message %}
+    <p class="green-text">
+        {{ message }}
+    </p>
+{% endif %}
+{% if form.non_field_errors %}
+    <p class="text-danger red-text text-lighten-1">
+        {{ form.non_field_errors }}
+    </p>
+{% endif %}
+<form class="row" id="comment-area" data-csrf="{{ csrf_token }}">
+    {{ form.comment }}
+</form>
+<div class="right">
+    <a class="material-icons trigger-icon-modal" href="javascript:void(0);">insert_emoticon</a>
+    <button class="btn waves-effect waves-light save-comment" data-url="">
+        <i class="material-icons right">send</i>
+    </button>
+</div>

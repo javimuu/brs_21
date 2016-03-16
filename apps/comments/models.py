@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.html import escape
 from apps.reviews.models import Review
+from .icons import ICONS
 # Create your models here.
 
 
@@ -12,4 +14,11 @@ class Comment(models.Model):
 
     class Meta:
         db_table = 'comments'
+
+    @property
+    def parse_comment(self):
+        comment = escape(self.comment)
+        for key, value in ICONS.items():
+            comment = comment.replace(key, r'<img src="'+value+'" alt="'+key+'"></img>')
+        return comment
 

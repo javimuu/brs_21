@@ -7,7 +7,7 @@ from apps.books.models import Book
 class Review(models.Model):
     review = models.TextField()
     rating = models.IntegerField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)

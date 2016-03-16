@@ -5,7 +5,6 @@ from django.core.urlresolvers import (
 )
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from django.contrib.admin.forms import AdminAuthenticationForm
 from django.contrib.auth import login, logout
 from django.views.generic import (
     FormView,
@@ -17,10 +16,7 @@ from django.views.generic import (
 
 from .form import AdminAuthForm
 
-from apps.categories.models import (
-    Category,
-    BookCategory,
-)
+from apps.categories.models import Category
 
 from apps.categories.form import (
     CategoryForm,
@@ -39,7 +35,7 @@ class AdminRequiredMixin(object):
         return super(AdminRequiredMixin, self).dispatch(request, *args, **kwargs)
 
 
-### Section: Auth
+# Section: Auth
 
 class IndexView(AdminRequiredMixin, TemplateView):
     template_name = 'admin/index.html'
@@ -72,10 +68,10 @@ class LoginView(FormView):
         login(self.request, admin)
         return super().form_valid(form)
 
-### End Section Auth
+# End Section Auth
 
 
-### Section: Categories
+# Section: Categories
 
 class CategoryView(AdminRequiredMixin, ListView):
     """
@@ -112,7 +108,6 @@ class CategoryCreateView(AdminRequiredMixin, CreateView):
         context['info'] = info
         return context
 
-
     def get_success_url(self):
         return reverse('admin:category')
 
@@ -137,4 +132,4 @@ class CategoryUpdateView(AdminRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse('admin:category')
 
-### End Section Categories
+# End Section Categories

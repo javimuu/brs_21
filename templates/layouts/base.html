@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="{% static 'css/materialize.min.css' %}" rel="stylesheet" media="screen">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   {% block css %}
   {% endblock %}
 </head>
@@ -20,13 +21,11 @@
   {% endblock %}
   {% include "layouts/footer.html" %}
 
-  {% block js %}
-  {% endblock %}
-
   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
   <script src="{% static 'js/materialize.js' %}"></script>
   <script src="{% static 'js/init.js' %}"></script>
-
+  {% block js %}
+  {% endblock %}
   </body>
 </html>

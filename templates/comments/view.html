@@ -1,0 +1,22 @@
+{% for comment in comments %}
+<li class="collection-item avatar">
+    <img src="images/no_avatar.png" alt="" class="circle">
+    <a href="#">javimuu</a>&nbsp;&nbsp;&nbsp;<small class="grey-text lighten-3">at {{ comment.updated_at|timesince }}</small>
+
+    <p>{{ comment.parse_comment|safe }}<br>
+
+    </p>
+    <a href="javascript:void(0);" data-activates='comment-{{ comment.id }}' class="dropdown-button secondary-content">
+        <i class="material-icons">more_vert</i>
+    </a>
+    <ul id='comment-{{ comment.id }}' class='dropdown-content'>
+        <li><a href="javascript:void(0);" class="edit-comment" data-id="{{ comment.id }}">Edit</a></li>
+        <li><a href="javascript:void(0);" class="delete-comment" data-id="{{ comment.id }}" data-csrf="{{ csrf_token }}">Delete</a></li>
+    </ul>
+</li>
+{% endfor %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.dropdown-button').dropdown();
+    })
+</script>

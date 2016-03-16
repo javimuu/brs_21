@@ -109,9 +109,39 @@ footer.page-footer {
   vertical-align: middle;
 }
 
-.rating .material-icons{
-  cursor: pointer;
+.rating{
+    float: left;
 }
+
+.rating label{
+    padding: 0!important;
+    font-size: 1.8em!important;
+}
+
+.rating label:before{
+    content: none;
+}
+
+.rating label:after{
+    content: none;
+}
+
+.rating > input{
+    display: none;
+}
+.rating .material-icons{
+    cursor: pointer;
+    float: right;
+}
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
 
 .select-wrapper input {
   color: #009688;
@@ -121,20 +151,13 @@ footer.page-footer {
   padding-bottom: 4px;
 }
 
-.list-comment .collection-item{
-  border-bottom: 1px solid #F7F7F7;
-}
-
-.list-comment{
-  overflow: visible;
-}
-
 #modal-icon img{
   -webkit-transition: all 0.2s ease; /* Safari and Chrome */
   -moz-transition: all 0.2s ease; /* Firefox */
   -ms-transition: all 0.2s ease; /* IE 9 */
   -o-transition: all 0.2s ease; /* Opera */
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 #modal-icon img:hover{
@@ -143,6 +166,7 @@ footer.page-footer {
   -ms-transform:scale(1.25); /* IE 9 */
   -o-transform:scale(1.25); /* Opera */
    transform:scale(1.25);
+   cursor: pointer;
 }
 
 .bg-fr{
@@ -273,4 +297,57 @@ footer.page-footer {
 }
 #profile-page-wall-posts .card-action-share {
     padding: 16px;
+}
+
+blockquote {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  width: 100%;
+  margin: 0.25em 0;
+  padding: 0.25em 40px;
+  line-height: 1.45;
+  position: relative;
+  color: #383838;
+  border-left: none!important;
+}
+
+blockquote:before {
+  display: block;
+  content: "\201C";
+  font-size: 80px;
+  position: absolute;
+  left: -20px;
+  top: -20px;
+  color: #7a7a7a;
+}
+
+blockquote cite {
+color: #999999;
+font-size: 14px;
+display: block;
+margin-top: 5px;
+}
+
+blockquote cite:before {
+content: "\2014 \2009";
+}
+
+.list-review .num-comment {
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+
+.list-review .collection-item{
+  border-bottom: 1px solid #F7F7F7;
+}
+
+.list-review{
+  overflow: visible;
+}
+
+.list-comment{
+  overflow: visible;
+  border: none;
 }

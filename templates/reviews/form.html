@@ -1,0 +1,42 @@
+<h4>Write a review</h4>
+{% if message %}
+    <p class="green-text">
+    {{ message }}
+    </p>
+{% endif %}
+{% if form.non_field_errors %}
+    <p class="text-danger red-text text-lighten-1">
+        {{ form.non_field_errors }}
+    </p>
+{% endif %}
+<form id="review-form" data-csrf="{{ csrf_token }}" method="post">
+    {% csrf_token %}
+    Review:
+    {{ form.review }}
+    {% if form.review.errors %}
+        {% for error in form.review.errors %}
+            <span class="red-text text-lighten-1">{{ error }}</span>
+        {% endfor %}
+    {% endif %}
+    <br>
+    Rating:
+    <br>
+    <div class="rating grey-text lighten-3">
+        <input type="radio" value="5" name="{{ form.rating.name }}" id="star5" {% if form.rating.value == 5 %}checked{% endif %}>
+        <label class="material-icons star" data-value="5" for="star5">grade</label>
+        <input type="radio" value="4" name="{{ form.rating.name }}" id="star4" {% if form.rating.value == 4 %}checked{% endif %}>
+        <label class="material-icons star" data-value="4" for="star4">grade</label>
+        <input type="radio" value="3" name="{{ form.rating.name }}" id="star3" {% if form.rating.value == 3 %}checked{% endif %}>
+        <label class="material-icons star" data-value="3" for="star3">grade</label>
+        <input type="radio" value="2" name="{{ form.rating.name }}" id="star2" {% if form.rating.value == 2 %}checked{% endif %}>
+        <label class="material-icons star" data-value="2" for="star2">grade</label>
+        <input type="radio" value="1" name="{{ form.rating.name }}" id="star1" {% if form.rating.value == 1 %}checked{% endif %}>
+        <label class="material-icons star" data-value="1" for="star1">grade</label>
+    </div>
+    {% if form.rating.errors %}
+        {% for error in form.rating.errors %}
+            <span class="red-text text-lighten-1">{{ error }}</span>
+        {% endfor %}
+    {% endif %}
+    {{ form.book }}
+</form>

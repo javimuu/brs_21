@@ -11,3 +11,4 @@ class Favorites(models.Model):
 
     class Meta:
         db_table = 'favorites'
+

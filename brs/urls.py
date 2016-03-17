@@ -16,8 +16,10 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf import settings
+from apps.users.views import *
 
 urlpatterns = [
+    url(r'^signup/$', SignupView.as_view(), name='signup'),
     url(r'^admin/', include('apps.admin.urls', namespace='admin')),
     url(r'^books/', include('apps.books.urls', namespace='books')),
     url(r'^reviews/', include('apps.reviews.urls', namespace='reviews')),

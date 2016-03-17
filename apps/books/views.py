@@ -1,5 +1,4 @@
 from django.views.generic import DetailView
-
 from apps.books.models import Book
 # Create your views here.
 

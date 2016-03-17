@@ -14,6 +14,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.conf.urls.static import static
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import admin
 from django.conf import settings
 from apps.users.views import *
@@ -21,9 +22,10 @@ from apps.books import views
 
 urlpatterns = [
     url(r'^$', views.SiteIndexView.as_view(), name='home'),
+    url(r'^signup/$', SignupView.as_view(), name='signup'),
+    url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^admin/', include('apps.admin.urls', namespace='admin')),
     url(r'^books/', include('apps.books.urls', namespace='books')),
     url(r'^reviews/', include('apps.reviews.urls', namespace='reviews')),
     url(r'^comments/', include('apps.comments.urls', namespace='comments')),
-    url(r'^signup/$', SignupView.as_view(), name='signup'),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

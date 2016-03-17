@@ -1,0 +1,14 @@
+<div id="data-table-simple_info" class="dataTables_info" role="status" aria-live="polite">Showing {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} pages</div>
+<div id="data-table-simple_paginate" class="dataTables_paginate paging_simple_numbers">
+    {% if page_obj.has_previous %}
+    <a href="/admin/{{link}}?page={{ page_obj.previous_page_number }}" id="data-table-simple_previous" class="paginate_button previous " aria-controls="data-table-simple" data-dt-idx="0" tabindex="0">Previous</a>
+    {% endif %}
+    <span>
+        {% for i in paginator.page_range %}
+            <a href="/admin/{{link}}?page={{i}}" class="paginate_button  {% if page_obj.number == i %}current{% endif %}" aria-controls="data-table-simple" data-dt-idx="1" tabindex="0">{{i}}</a>
+        {% endfor %}
+    </span>
+    {% if page_obj.has_next %}
+    <a href="/admin/{{link}}?page={{ page_obj.next_page_number }}" id="data-table-simple_next" class="paginate_button next" aria-controls="data-table-simple" data-dt-idx="7" tabindex="0">Next</a>
+    {% endif %}
+</div>

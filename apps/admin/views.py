@@ -89,6 +89,7 @@ class CategoryView(AdminRequiredMixin, ListView):
     model = Category
     context_object_name = 'categories'
     template_name = 'admin/categories/index.html'
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super(CategoryView, self).get_context_data(**kwargs)

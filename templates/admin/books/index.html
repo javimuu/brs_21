@@ -39,18 +39,7 @@
       <div id="data-table-simple_wrapper" class="dataTables_wrapper">
         {% include "admin/_includes/book_table.html" with books=books %}
         {% if is_paginated %}
-          <div id="data-table-simple_info" class="dataTables_info" role="status" aria-live="polite">Showing {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} pages</div>
-            <div id="data-table-simple_paginate" class="dataTables_paginate paging_simple_numbers">
-                {% if page_obj.has_previous %}
-                <a href="/admin/books?page={{ page_obj.previous_page_number }}" id="data-table-simple_previous" class="paginate_button previous " aria-controls="data-table-simple" data-dt-idx="0" tabindex="0">Previous</a>
-                {% endif %}
-                <span>
-                    <a class="paginate_button current" aria-controls="data-table-simple" data-dt-idx="1" tabindex="0">{{ page_obj.number }}</a>
-                </span>
-                {% if page_obj.has_next %}
-                <a href="/admin/books?page={{ page_obj.next_page_number }}" id="data-table-simple_next" class="paginate_button next" aria-controls="data-table-simple" data-dt-idx="7" tabindex="0">Next</a>
-                {% endif %}
-            </div>
+        {% include "admin/_includes/paginator.html" with paginate_by=paginate_by link="books"%}
         {% endif %}
         </div>
     </div>

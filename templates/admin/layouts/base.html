@@ -9,18 +9,75 @@
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="{% static 'css/materialize.min.css' %}" rel="stylesheet" media="screen">
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/admin.css' %}" rel="stylesheet">
+  <link href="{% static 'css/jquery.min.css' %}" rel="stylesheet">
   {% block css %}
   {% endblock %}
 
 </head>
-<body class="">
+<body class="loaded">
+  <!-- Start Page Loading -->
+  <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+  </div>
+  <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-  {% block content %}
+  <!-- START HEADER -->
+  {% include "admin/layouts/header.html" %}
+  <!-- END HEADER -->
+
+  <!-- //////////////////////////////////////////////////////////////////////////// -->
+  <!-- START MAIN -->
+  <div id="main">
+    <!-- START WRAPPER -->
+    <div class="wrapper">
+
+      <!-- START LEFT SIDEBAR NAV-->
+      <aside id="left-sidebar-nav">
+            <ul style="left: 0px; height: 669px;" id="slide-out" class="side-nav fixed leftside-navigation ps-container ps-active-y">
+                <li class="user-details cyan darken-2">
+                    <div class="row">
+                        <div class="col col s4 m4 l4">
+                            <img src="#" alt="" class="circle responsive-img valign profile-image">
+                        </div>
+                        <div class="col col s8 m8 l8">
+
+                            <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">{{user.username}}<i class="mdi-navigation-arrow-drop-down right"></i></a><ul style="width: 128px; left: 101.233px; position: absolute; top: 57px; opacity: 1; display: none;" id="profile-dropdown" class="dropdown-content">
+                                <li><a href="/admin/logout/"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                </li>
+                            </ul>
+                            <p class="user-roal">Administrator</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="bold"><a href="/admin/" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
+                </li>
+                <li class="bold"><a href="/admin/categories/" class="waves-effect waves-cyan"><i class="mdi-file-folder"></i> Categories </a>
+                </li>
+                <li class="bold"><a href="/admin/books/" class="waves-effect waves-cyan"><i class="mdi-action-dns"></i> Books</a>
+                </li>
+                <li class="li-hover"><div class="divider"></div></li>
+                <li class="li-hover"><p class="ultra-small margin more-text">MORE</p></li>
+                <li><a href="#"><i class="mdi-social-people"></i>Users</a>
+                </li>
+                <li><a href="#"><i class="mdi-av-playlist-add"></i> Request buy book</a>
+                </li>
+            </ul>
+        </aside>
+      <!-- END LEFT SIDEBAR NAV-->
+
+      <!-- START CONTENT -->
+      <section id="content">
+
+      {% block content %}
 
 
-  {% endblock %}
-
+      {% endblock %}
+      </div> <!-- END WRAPPER -->
+  </div> <!-- END MAIN -->
+  {% include "admin/layouts/footer.html" %}
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="{% static 'js/materialize.js' %}"></script>

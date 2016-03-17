@@ -1,10 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
-
-
-def _path_to_cover(instance, filename):
-    return '{images}/{cover}/{filename}'.format(
-                        filename=filename)
+from django.conf import settings
+from apps.categories.models import Category
+from apps.core.view import upload_to_imgur
 
 
 class Book(models.Model):
@@ -14,10 +12,22 @@ class Book(models.Model):
     publish_date = models.DateTimeField()
     description = models.TextField(blank=True, default='')
     price = models.FloatField(null=False, blank=False, default=0.0)
-    cover = models.ImageField(upload_to=_path_to_cover, max_length=255, default='', blank=False)
-
+    # cover = models.ImageField(upload_to=upload_to_imgur, max_length=255, default='', blank=False)
+    categories = models.ManyToManyField(Category, through='BookCategory')
     class Meta:
         db_table = 'books'
+
+
+
+class BookCategory(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = 'book_category'
+        auto_created = True
 
 
 class UserBook(models.Model):

@@ -1,10 +1,5 @@
-<form method="post" id="submit-form" class="login-form" action="{{action}}">
+<form method="post" id="submit-form" class=" col s12" action="{{action}}">
 {% csrf_token %}
-  <div class="row">
-    <div class="input-field col s12 center">
-      <p class="center login-form-text">Book Reviews System</p>
-    </div>
-  </div>
   <div class="row margin">
     <div class="input-field col s12">
         {{form.title}}
@@ -27,9 +22,9 @@
             {% endfor %}
       </div>
   </div>
-  <div class="row">
+  <div class="row margin">
     <div class="input-field col s12">
-      <button type="submit" class="btn waves-effect waves-light col s12">{{button}}</button>
+      <button type="submit" class="btn cyan waves-effect waves-light right">{{button}}</button>
     </div>
   </div>
 </form>

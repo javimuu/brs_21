@@ -12,15 +12,23 @@ from django.views.generic import (
     ListView,
     CreateView,
     UpdateView,
+    DetailView,
+    DeleteView,
 )
 
 from .form import AdminAuthForm
 
 from apps.categories.models import Category
-
 from apps.categories.form import (
     CategoryForm,
+    BookCategoryForm
 )
+
+from apps.books.models import (
+    Book,
+    BookCategory,
+)
+from apps.books.form import  BookForm
 
 LOGIN_PAGE = reverse_lazy("admin:login")
 
@@ -91,6 +99,25 @@ class CategoryView(AdminRequiredMixin, ListView):
         return context
 
 
+class CategoryDetailView(AdminRequiredMixin, DetailView):
+    """
+    View list categories
+    """
+
+    model = Category
+    context_object_name = 'category'
+    template_name = 'admin/categories/detail.html'
+    paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryDetailView, self).get_context_data(**kwargs)
+        info = {
+            'title': 'Detail category | Book Review System',
+        }
+        context['info'] = info
+        return context
+
+
 class CategoryCreateView(AdminRequiredMixin, CreateView):
     """
     Create a new category
@@ -133,3 +160,79 @@ class CategoryUpdateView(AdminRequiredMixin, UpdateView):
         return reverse('admin:category')
 
 # End Section Categories
+
+
+# Section Manage Book
+
+class BookView(AdminRequiredMixin, ListView):
+    """
+    View list categories
+    """
+
+    model = Book
+    context_object_name = 'books'
+    template_name = 'admin/books/index.html'
+    paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super(BookView, self).get_context_data(**kwargs)
+        info = {
+            'title': 'Book Review System - List',
+        }
+        context['info'] = info
+        return context
+
+
+class BookCreateView(AdminRequiredMixin, CreateView):
+    """
+    Create a new book
+    """
+    model = Book
+    form_class = BookForm
+    template_name = 'admin/books/new.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(BookCreateView, self).get_context_data(**kwargs)
+        info = {
+            'title': 'Create a new Book | Book Review System ',
+        }
+        context['info'] = info
+        return context
+
+    def get_success_url(self):
+        return reverse('admin:book')
+
+
+class BookUpdateView(AdminRequiredMixin, UpdateView):
+    """
+    Edit a book
+    """
+
+    model = Book
+    form_class = BookForm
+    template_name = 'admin/books/edit.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(BookUpdateView, self).get_context_data(**kwargs)
+        info = {
+            'title': 'Update a book | Book Review System',
+        }
+        context['info'] = info
+        context['categories'] = Category.objects.all()
+        return context
+
+    def get_success_url(self):
+        return reverse('admin:book')
+
+
+class BookDeleteView(AdminRequiredMixin, DeleteView):
+    """docstring for BookDeleteView"""
+    model = Book
+
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse('admin:book')
+
+# End Section Manage Book
